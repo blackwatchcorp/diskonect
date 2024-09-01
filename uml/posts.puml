@@ -1,0 +1,16 @@
+@startuml
+title ERD
+entity post {
+    id :
+    --
+    slug : string
+    --
+    created_at : time_stamp
+    --
+    title : string
+    --
+    assets ; string[]
+    --
+    content: string
+}
+@enduml
