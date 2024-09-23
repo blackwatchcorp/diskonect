@@ -23,4 +23,8 @@ public class PostService {
   public List<Post> fetchAllPosts() {
     return postDao.queryAllPosts();
   }
+
+  public int createNewPost(Post post){
+    return postDao.createPost(post);
+  }
 }
