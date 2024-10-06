@@ -25,8 +25,15 @@ public class PostDao {
     return jdbcTemplate.query(query, new PostRowMapper());
   }
 
-  public int createPost(Post post){
-    String query = "INSERT INTO diskonect.post(slug, created_at, title, assets, content) VALUES ( ?, ?, ?, ?, ?)";
-    return jdbcTemplate.update(query,post.slug(), post.createdAt(), post.title(),post.assets().toArray(new String[0]), post.content());
+  public int createPost(Post post) {
+    String query =
+        "INSERT INTO diskonect.post(slug, created_at, title, assets, content) VALUES ( ?, ?, ?, ?, ?)";
+    return jdbcTemplate.update(
+        query,
+        post.slug(),
+        post.createdAt(),
+        post.title(),
+        post.assets().toArray(new String[0]),
+        post.content());
   }
 }

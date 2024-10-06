@@ -2,9 +2,8 @@ package com.blackwatch.diskonect.service;
 
 import com.blackwatch.diskonect.model.Post;
 import com.blackwatch.diskonect.repository.PostDao;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /** Service bean for controllers to interact with posts. */
 @Service
@@ -24,7 +23,7 @@ public class PostService {
     return postDao.queryAllPosts();
   }
 
-  public int createNewPost(Post post){
+  public int createNewPost(Post post) {
     return postDao.createPost(post);
   }
 }
