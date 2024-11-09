@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class PostDao {
@@ -35,5 +36,15 @@ public class PostDao {
         post.title(),
         post.assets().toArray(new String[0]),
         post.content());
+  }
+
+  public Optional<Post> queryPostBySlug(String slug) {
+    String query = "SELECT * FROM diskonect.post where slug = ?";
+    List<Post> posts = jdbcTemplate.query(query, new PostRowMapper(), slug);
+
+    if (posts.isEmpty()) {
+      return Optional.empty();
+    }
+    return Optional.of(posts.getFirst());
   }
 }
